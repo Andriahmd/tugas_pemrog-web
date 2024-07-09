@@ -1,0 +1,26 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar {
+    width: 250px;
+}
+
+.main-content {
+    overflow-y: auto;
+}
+
+.header, .dashboard-content, .card {
+    margin: 0;
+    padding: 0;
+}
+
+.card h3 {
+    margin: 0;
+}
+
+.card p, .card span {
+    margin-top: 10px;
+}
