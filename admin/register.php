@@ -77,18 +77,18 @@
         <p>Login To Dashboard</p>
         <img src="../img/admin.png" alt="Admin Icon">
 
-        <form method="post" action="cek_login.php">
+        <form method="post" action="cek_regis.php">
             <div class="form-group">
                 <input type="text" class="form-control" name="username" placeholder="Username" required>
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" name="email" placeholder="email" required>
+                <input type="text" class="form-control" name="email" placeholder="email" required>
             </div>
             <div class="form-group">
                 <input type="password" class="form-control" name="sandi" placeholder="password" required>
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" name="sandi" placeholder="Confirm Password" required>
+                <input type="password" class="form-control" name="sandiulang" placeholder="Confirm Password" required>
             </div>
             <button type="submit" class="btn btn-primary">Login</button>
         </form>

@@ -6,9 +6,9 @@ include 'navbar.php';
 
 $navbarItems = [
     ['label' => 'Dashboard', 'link' => 'dashboard.php', 'active' => false],
-    ['label' => 'Pesanan', 'link' => 'penjualan.php', 'active' => false],
+    ['label' => 'Pesanan', 'link' => 'pesanan.php', 'active' => false],
     ['label' => 'Paket Ketring', 'link' => 'menu_catring.php', 'active' => true],
-    ['label' => 'Sign Out', 'link' => '#', 'active' => false],
+    ['label' => 'Sign Out', 'link' => 'index.php', 'active' => false],
 ];
 
 $navbar = new Navbar($navbarItems);
@@ -84,9 +84,12 @@ $navbar = new Navbar($navbarItems);
 
                                 </td>
                                 <td class="border px-4 py-2">
-                                    <a href="hapus.php?id=<?php echo $d['id']; ?>"
-                                        class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded"
-                                        onclick="return confirm('Anda yakin ingin menghapus data ini?')">HAPUS</a>
+                                    <a href="hapus_menu.php?id=<?php echo $d['id']; ?>" class="btn btn-danger btn-sm"
+                                        onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">
+                                        Hapus
+                                    </a><br>
+                                    <a href="edit_makanan.php?id=<?php echo $d['id']; ?>"
+                                        class="btn btn-info btn-sm">Edit</a>
                                 </td>
                             </tr>
                             <?php } ?>

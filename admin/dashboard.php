@@ -8,11 +8,11 @@ session_start();
 
 
 $navbarItems = [
-    ['label' => 'Dashboard', 'link' => 'dashboard.php', 'active' => false],
-    ['label' => 'Pesanan', 'link' => '#', 'active' => true],
+    ['label' => 'Dashboard', 'link' => 'dashboard.php', 'active' => true],
+    ['label' => 'Pesanan', 'link' => 'pesanan.php', 'active'  => false],
     ['label' => 'Paket Ketring', 'link' => 'menu_catring.php', 'active' => false],
-    ['label' => 'Status Pembayaran', 'link' => '#', 'active' => false],
-    ['label' => 'Sign Out', 'link' => '#', 'active' => false],
+    
+    ['label' => 'Sign Out', 'link' => 'index.php', 'active' => false],
 ];
 
 $navbar = new Navbar($navbarItems);
@@ -105,14 +105,15 @@ $navbar = new Navbar($navbarItems);
                     <div class="card-body">
                         <h3>Top Products</h3>
                         <ul class="list-group">
-                            <li class="list-group-item d-flex justify-content-between align-items-center">Home Decor
-                                Range <span class="badge bg-primary">45%</span></li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">Disney
-                                Princess Pink Bag 18" <span class="badge bg-primary">29%</span></li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">Bathroom
-                                Essentials <span class="badge bg-primary">18%</span></li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">Apple
-                                Smartwatches <span class="badge bg-primary">25%</span></li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">paket hemat 2
+                                <span class="badge bg-primary">45%</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">paket hemat
+                                1<span class="badge bg-primary">29%</span></li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">paket hemat 3
+                                <span class="badge bg-primary">18%</span>
+                            </li>
+
                         </ul>
                     </div>
                 </div>

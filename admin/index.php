@@ -89,7 +89,7 @@
             } 
         } 
         ?>
-        <form method="post" action="cek_login.php">
+        <form method="post" action="cek_index.php">
             <div class="form-group">
                 <input type="text" class="form-control" name="username" placeholder="Username" required>
             </div>

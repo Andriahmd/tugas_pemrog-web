@@ -98,6 +98,54 @@
         </form>
 
     </div>
+    <!-- Footer -->
+    <div class="footer bg-dark text-light py-4">
+        <div class="container footer">
+            <div class="row">
+                <div class="col-md-3">
+                    <h5 class="text-xl font-bold">Warung Pakde</h5>
+                    <p>Warung pakde merupan salah satu rumah makan yang telah berkerja sama untuk membuat system
+                        e-cetring dimana system ini sangat berguna untuk membantu proses pemesana cetring untuk acara
+                        besar dan acara lainnya
+                    </p>
+                    <p>Angkringan@gmail.com</p>
+                    <p>+62 89098762</p>
+                    <p>Jln.jakut, jakarta timur</p>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="text-xl font-bold">Mitra</h5>
+                    <ul class="list-unstyled">
+                        <li>Gojek</li>
+                        <li>Grab</li>
+                        <li>Paypal</li>
+                        <li>Affilation</li>
+                        <li>FAQs</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="text-xl font-bold">Our Services</h5>
+                    <ul class="list-unstyled">
+                        <li>Online Order Catring</li>
+                        <li>Free Ongkir</li>
+                        <li>Wishlist</li>
+                        <li>Discount</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="text-xl font-bold">Our Newsletter</h5>
+                    <form>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Name">
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Email">
+                        </div>
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

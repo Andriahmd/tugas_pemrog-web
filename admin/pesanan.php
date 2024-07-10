@@ -2,17 +2,14 @@
 include '../koneksi.php';
 include 'navbar.php';
 
-
 // Cek level user
 session_start();
-
 
 $navbarItems = [
     ['label' => 'Dashboard', 'link' => 'dashboard.php', 'active' => false],
     ['label' => 'Pesanan', 'link' => '#', 'active' => true],
     ['label' => 'Paket Ketring', 'link' => 'menu_catring.php', 'active' => false],
-    ['label' => 'Status Pembayaran', 'link' => '#', 'active' => false],
-    ['label' => 'Sign Out', 'link' => '#', 'active' => false],
+    ['label' => 'Sign Out', 'link' => 'index.php', 'active' => false],
 ];
 
 $navbar = new Navbar($navbarItems);
@@ -36,7 +33,13 @@ $navbar = new Navbar($navbarItems);
         <div class="main-content flex-grow p-4 ml-64">
             <header class="flex justify-between items-center pb-3 mb-4 border-b border-gray-300">
                 <div class="search-container w-1/2">
-                    <input type="text" class="form-control" placeholder="Search here...">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Pencarian</label>
+                    <form action="pesanan.php" method="get" class="flex">
+                        <input type="text" name="cari"
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        <input type="submit" value="Cari"
+                            class="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    </form>
                 </div>
                 <div class="user-info flex items-center">
                     <span>Eng (US)</span>
@@ -91,38 +94,53 @@ $navbar = new Navbar($navbarItems);
                                 <th class="table-light">Nama</th>
                                 <th class="table-light">Email</th>
                                 <th class="table-light">Pesanan</th>
+                                <th class="table-light">Total Bayar</th>
                                 <th class="table-light">Status Pemesanan</th>
                                 <th class="table-light">Tanggal Pesanan</th>
                                 <th class="table-light">Tanggal Pengambilan</th>
                                 <th class="table-light">Aksi</th>
-
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             $no = 1;
-                            $data = mysqli_query($koneksi, "SELECT * FROM penjualan");
-                            while ($d = mysqli_fetch_array($data)) {
+                            if (isset($_GET['cari'])) {
+                                $cari = mysqli_real_escape_string($koneksi, $_GET['cari']);
+                                $query = "SELECT * FROM penjualan WHERE nama LIKE '%$cari%' OR pesanan LIKE '%$cari%' OR harga LIKE '%$cari%'";
+                            } else {
+                                $query = "SELECT * FROM penjualan";
+                            }
+
+                            $data = mysqli_query($koneksi, $query);
+
+                            if (mysqli_num_rows($data) > 0) {
+                                while ($d = mysqli_fetch_array($data)) {
                             ?>
                             <tr>
                                 <td><?php echo $no++; ?></td>
-                                <td><?php echo $d['nama']; ?></td>
-                                <td><?php echo $d['email']; ?></td>
-                                <td><?php echo $d['pesanan']; ?></td>
-                                <td><?php echo $d['status_pesanan']; ?></td>
-                                <td><?php echo $d['tgl_pemesanan']; ?></td>
-                                <td><?php echo $d['tgl_pengambilan']; ?></td>
+                                <td><?php echo htmlspecialchars($d['nama']); ?></td>
+                                <td><?php echo htmlspecialchars($d['email']); ?></td>
+                                <td><?php echo htmlspecialchars($d['pesanan']); ?></td>
+                                <td><?php echo htmlspecialchars($d['harga']); ?></td>
+                                <td><?php echo htmlspecialchars($d['status_pesanan']); ?></td>
+                                <td><?php echo htmlspecialchars($d['tgl_pemesanan']); ?></td>
+                                <td><?php echo htmlspecialchars($d['tgl_pengambilan']); ?></td>
                                 <td>
-                                    <a href="hapus_mhs.php?id=<?php echo $d['id_user']; ?>"
-                                        class="btn btn-danger btn-sm">Hapus</a>
-                                    <a href="edit_mhs.php?id=<?php echo $d['id_user']; ?>"
+                                    <a href="hapus.php?id_user=<?php echo htmlspecialchars($d['id_user']); ?>"
+                                        class="btn btn-danger btn-sm"
+                                        onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">
+                                        Hapus
+                                    </a>
+                                    <a href="edit_pesanan.php?id_user=<?php echo htmlspecialchars($d['id_user']); ?>"
                                         class="btn btn-info btn-sm">Edit</a>
                                 </td>
-
-
-
                             </tr>
-                            <?php } ?>
+                            <?php 
+                                }
+                            } else {
+                                echo '<tr><td colspan="9" class="text-center">Tidak ada data ditemukan</td></tr>';
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>

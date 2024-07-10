@@ -9,11 +9,27 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <!-- Bootstrap 5.3 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    body {
+        background-color: #f8f9fa;
+        font-family: Arial, sans-serif;
+    }
+
+
+    .container mx-auto p-6 h2 {
+
+        font-weight: bold;
+        font-family: 'Times New Roman',
+            Times,
+            serif;
+        font-size: 1.5rem;
+    }
+    </style>
 </head>
 
 <body class="bg-gray-100">
     <div class="container mx-auto p-6">
-        <h2 class="text-2xl font-bold mb-6">Tambah Menu Makanan</h2>
+        <h2 class="text-center mb-6">Tambah Menu Makanan</h2>
         <form action="../store.php" method="POST" enctype="multipart/form-data" class="bg-white p-6 rounded shadow-md">
             <div class="mb-4">
                 <label for="id" class="block text-gray-700">ID</label>
@@ -29,7 +45,7 @@
             </div>
             <div class="mb-4">
                 <label for="porsi" class="block text-gray-700">Porsi</label>
-                <input type="number" name="porsi" id="porsi" class="form-control" required>
+                <input type="text" name="porsi" id="porsi" class="form-control" required>
             </div>
             <div class="mb-4">
                 <label for="harga" class="block text-gray-700">Harga</label>

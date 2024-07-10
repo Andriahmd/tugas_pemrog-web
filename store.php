@@ -33,7 +33,7 @@ if ($foto != "") {
                     " - " . mysqli_error($koneksi));
             } else {
                 // tampil alert dan akan redirect ke halaman makanan.php
-                echo "<script>alert('Data berhasil ditambah.');window.location='menu_catring.php';</script>";
+                echo "<script>alert('Data berhasil ditambah.');window.location='./admin/menu_catring.php';</script>";
             }
         } else {
             echo "<script>alert('Gagal mengupload gambar.');window.location='menu_catring.php';</script>";
@@ -52,7 +52,7 @@ if ($foto != "") {
             " - " . mysqli_error($koneksi));
     } else {
         // tampil alert dan akan redirect ke halaman makanan.php
-        echo "<script>alert('Data berhasil ditambah.');window.location='menu_catring.php';</script>";
+        echo "<script>alert('Data berhasil ditambah.');window.location='./admin/menu_catring.php';</script>";
     }
 }
 ?>

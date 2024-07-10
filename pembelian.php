@@ -1,3 +1,5 @@
+<?php
+include 'koneksi.php';?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +23,7 @@
 
             <h1>Website E-Cetring</h1>
             <p>Menyediakan berbagai jenis pilihan cetring</p>
-            <p>Min Rp. 30,000 &bull; 60-80 min &bull; 5.0</p>
+
         </div>
 
         <div class="main row">
@@ -33,18 +35,46 @@
                             <img src="./img/paket 1.jpeg" class="img-fluid rounded-start" alt="Paket Promo 1">
                         </div>
                         <div class="col-md-8">
+
+                            <div class="row justify-content-center">
+                                <?php
+            $no = 1;
+            $data = mysqli_query($koneksi, "SELECT * FROM makanan");
+            while ($d = mysqli_fetch_array($data)) {
+            ?>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card shadow-lg">
+                                        <img src="img/<?php echo htmlspecialchars($d['foto']); ?>" class="card-img-top"
+                                            alt="...">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-xl font-semibold">
+                                                <?php echo htmlspecialchars($d['nama_menu']); ?>
+                                            </h5>
+                                            <p class="card-text">
+                                                <?php echo htmlspecialchars($d['keterangan']) . "<br>"; ?>
+                                                <?php echo "Porsi: " . htmlspecialchars($d['porsi']) . "<br>"; ?>
+                                                <?php echo "Harga: Rp " . number_format($d['harga'], 2, ',', '.'); ?>
+                                            </p>
+                                            <form method="post" action="">
+                                                <label for="quantity">Jumlah Porsi :</label>
+                                                <input type="number" id="quantity" name="quantity" value="1" min="1">
+                                                <input type="hidden" name="price" value="45000">
+                                                <button type="submit" name="add_to_cart" class="btn btn-success">Add to
+                                                    Cart</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php
+            }
+            ?>
+                            </div>
                             <div class="card-body">
                                 <h2>POPULAR ORDERS Delicious hot food!</h2>
                                 <h5 class="card-title">Paket Promo 1</h5>
                                 <p class="card-text">2 ayam + nasi + free minuman pink lava</p>
                                 <p class="card-text"><strong>Rp. 45,000.00</strong></p>
-                                <form method="post" action="">
-                                    <label for="quantity">Jumlah Porsi :</label>
-                                    <input type="number" id="quantity" name="quantity" value="1" min="1">
-                                    <input type="hidden" name="price" value="45000">
-                                    <button type="submit" name="add_to_cart" class="btn btn-success">Add to
-                                        Cart</button>
-                                </form>
+
                             </div>
                         </div>
                     </div>
